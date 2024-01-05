@@ -1,0 +1,80 @@
+<?php
+    include ('assets/config/db.php');
+    $sql = 'SELECT client_id, name, email, due_date, art_style, details FROM commission';
+    $result = mysqli_query($con, $sql);
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets\css\commission.css">
+    <link rel="stylesheet" href="assets\css\materialize.min.css">
+    <script defer src="assets\js\materialize.min.js"></script>
+    <style>
+    </style>
+</head>
+<body>
+    <div class="main-wrapper">
+        <?php
+        include "admin-nav.php"; 
+        ?>
+
+        <article class="wrapper-commission">
+            <div class="commission">
+            <table class="striped centered"> 
+            <thead>
+  
+                <tr>
+                    <th class="yellow-text">Client ID</th>
+                    <th class="yellow-text">Client Name</th>
+                    <th class="yellow-text">Contact Info</th>
+                    <th class="yellow-text">Due Date</th>
+                    <th class="yellow-text">Style</th>
+                    <th class="yellow-text">Details</th>
+                    <th class="yellow-text">Dicisions</th>
+                </tr>   
+            </thead>
+            <tbody>
+               <?php
+
+                if ($result->num_rows > 0) {
+                    $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+                    foreach ($rows as $row) {
+                        echo "
+                            <tr>
+                                <td>$row[client_id]</td>
+                                <td>" . htmlspecialchars($row["name"])  . "</td>
+                                <td>" . htmlspecialchars($row["email"]) . "</td>
+                                <td>" . htmlspecialchars($row["due_date"]) . "</td>
+                                <td>" . htmlspecialchars($row["art_style"])  . "</td>
+                                <td>" . htmlspecialchars($row["details"])  . "</td>
+                                <td>
+                                <form action='confirm.php' method='post'>
+                                    <input type='hidden' name='client_id' value='" . htmlspecialchars($row["client_id"]) . "'>
+                                    <button type='submit' class='waves-effect waves-light btn yellow darken-2' name='confirm'>Confirm</button>
+                                </form>
+                                <a class='waves-effect waves-light btn deep-orange' id='decline' href='\Admin\decline.php?client_id=$row[client_id]'>Decline</a>
+                               </td>
+                            </tr>
+                        ";
+                    }
+                }
+                mysqli_free_result($result);
+                $con -> close();
+                
+                ?>
+                
+            </tbody>
+            </table>
+            </div>
+        </article>
+    </div>
+   
+</body>
+</html>
+
+
