@@ -24,52 +24,52 @@
 
         <article class="wrapper-commission">
             <div class="commission">
-            <table class="centered highlight"> 
-            <thead>
-  
-                <tr>
-                    <th class="yellow-text">Client ID</th>
-                    <th class="yellow-text">Client Name</th>
-                    <th class="yellow-text">Contact Info</th>
-                    <th class="yellow-text">Due Date</th>
-                    <th class="yellow-text">Style</th>
-                    <th class="yellow-text">Details</th>
-                    <th class="yellow-text">Dicisions</th>
-                </tr>   
-            </thead>
-            <tbody>
-               <?php
+                <table class="centered highlight"> 
+                <thead>
+    
+                    <tr>
+                        <th class="yellow-text">Client ID</th>
+                        <th class="yellow-text">Client Name</th>
+                        <th class="yellow-text">Contact Info</th>
+                        <th class="yellow-text">Due Date</th>
+                        <th class="yellow-text">Style</th>
+                        <th class="yellow-text">Details</th>
+                        <th class="yellow-text">Dicisions</th>
+                    </tr>   
+                </thead>
+                <tbody>
+                <?php
 
-                if ($result->num_rows > 0) {
-                    $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+                    if ($result->num_rows > 0) {
+                        $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-                    foreach ($rows as $row) {
-                        echo "
-                            <tr>
-                                <td>$row[client_id]</td>
-                                <td>" . htmlspecialchars($row["name"])  . "</td>
-                                <td>" . htmlspecialchars($row["email"]) . "</td>
-                                <td>" . htmlspecialchars($row["due_date"]) . "</td>
-                                <td>" . htmlspecialchars($row["art_style"])  . "</td>
-                                <td>" . htmlspecialchars($row["details"])  . "</td>
-                                <td style='display: flex; flex-direction: row; height: auto; width: auto;'>
-                                <form action='confirm.php' method='post'>
-                                    <input type='hidden' name='client_id' value='" . htmlspecialchars($row["client_id"]) . "'>
-                                    <button type='submit' class='waves-effect waves-light btn yellow darken-2' name='confirm'>Confirm</button>
-                                </form>
-                                <a class='waves-effect waves-light btn deep-orange' id='decline' href='\Admin\decline.php?client_id=$row[client_id]'>Decline</a>
-                               </td>
-                            </tr>
-                        ";
+                        foreach ($rows as $row) {
+                            echo "
+                                <tr>
+                                    <td>$row[client_id]</td>
+                                    <td>" . htmlspecialchars($row["name"])  . "</td>
+                                    <td>" . htmlspecialchars($row["email"]) . "</td>
+                                    <td>" . htmlspecialchars($row["due_date"]) . "</td>
+                                    <td>" . htmlspecialchars($row["art_style"])  . "</td>
+                                    <td>" . htmlspecialchars($row["details"])  . "</td>
+                                    <td style='display: flex; flex-direction: row; height: auto; width: auto;'>
+                                    <form action='confirm.php' method='post'>
+                                        <input type='hidden' name='client_id' value='" . htmlspecialchars($row["client_id"]) . "'>
+                                        <button type='submit' class='waves-effect waves-light btn yellow darken-2' name='confirm'>Confirm</button>
+                                    </form>
+                                    <a class='waves-effect waves-light btn deep-orange' id='decline' href='\Admin\decline.php?client_id=$row[client_id]'>Decline</a>
+                                </td>
+                                </tr>
+                            ";
+                        }
                     }
-                }
-                mysqli_free_result($result);
-                $con -> close();
-                
-                ?>
-                
-            </tbody>
-            </table>
+                    mysqli_free_result($result);
+                    $con -> close();
+                    
+                    ?>
+                    
+                </tbody>
+                </table>
             </div>
         </article>
     </div>

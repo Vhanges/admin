@@ -39,6 +39,7 @@
 
 .status-box{
     position: relative;
+    top: 20px;
     bottom: 3px;
     background-color: #2D2F31;
     border: none;
@@ -54,6 +55,7 @@
 
 .current-client-box{
     position: relative;
+    top: 20px;
     bottom: 3px;
     background-color: #2D2F31;
     border: none;
@@ -172,12 +174,17 @@ input[type="checkbox"]:checked + .slider:before {
 
 legend{
     font-weight: 700;
-    font-size: 17px;
+    font-size: 16px;
 }
 
 td {
     overflow-wrap: break-word;
-    font-size: 13px;
+    font-size: 12px;
+}
+
+th{
+    font-size: 14px;
+    font-weight: 600;
 }
 
 th:nth-child(6),
@@ -188,8 +195,15 @@ td:nth-child(7) {
 }
 
 
-/* ::-webkit-scrollbar {
-    opacity: 0;
-  } */
-
-  
+@media (min-height: 860px)
+{
+    .status-box{
+        position: relative;
+        top: 45px;
+    }
+    
+    .current-client-box{
+        position: relative;
+        top: 45px;
+    }
+}

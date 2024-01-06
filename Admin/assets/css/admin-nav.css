@@ -39,7 +39,8 @@ html{
     display: grid;  
     grid-template-columns: 80px 45px 75px;
     grid-template-rows: 25px 50px 25px;
-
+    position: relative;
+    top: 20px;
 }
 
 .image-container{
@@ -132,6 +133,17 @@ html{
     background-color: #ffc40c;
     color: black;
     animation: pulse s infinite;
+  }
+
+  @media (min-height: 860px) {
+    .side-nav{
+    position: relative;
+    bottom: 90px;
+    }
+    .user-container-box{
+    position: relative;
+    top: 45px;
+    }
   }
 
  
