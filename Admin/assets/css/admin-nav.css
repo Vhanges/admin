@@ -146,6 +146,20 @@ html{
     }
   }
 
+  @media (min-height: 950px) {
+    .side-nav{
+    position: relative;
+    bottom: 120px;
+    }
+    .user-container-box{
+    position: relative;
+    top: 70x;
+    }
+  }
+
+
+
+
  
 
 
