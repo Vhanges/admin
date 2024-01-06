@@ -169,22 +169,27 @@ input[type="checkbox"]:checked + .slider:before {
    transition: background-color 0.5s ease, transform 0.3s ease;
 }
 
-th{
-    width: 25%;
-    font-weight: 300;
+
+legend{
+    font-weight: 700;
+    font-size: 17px;
 }
 
-td{
-    width: 25%;
-    max-height: 30px;
-    max-width: 250px;
+td {
     overflow-wrap: break-word;
+    font-size: 13px;
 }
+
+th:nth-child(6),
+td:nth-child(6),
+th:nth-child(7),
+td:nth-child(7) {
+    width: 20%;
+}
+
 
 /* ::-webkit-scrollbar {
     opacity: 0;
   } */
 
   
-
-

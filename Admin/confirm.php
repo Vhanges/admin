@@ -26,6 +26,5 @@ if (isset($_POST['confirm'])) {
     }
 }
 
-// Close the connection
 $con->close();
 ?>

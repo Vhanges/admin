@@ -24,7 +24,7 @@
 
         <article class="wrapper-commission">
             <div class="commission">
-            <table class="striped centered"> 
+            <table class="centered highlight"> 
             <thead>
   
                 <tr>
@@ -52,7 +52,7 @@
                                 <td>" . htmlspecialchars($row["due_date"]) . "</td>
                                 <td>" . htmlspecialchars($row["art_style"])  . "</td>
                                 <td>" . htmlspecialchars($row["details"])  . "</td>
-                                <td>
+                                <td style='display: flex; flex-direction: row; height: auto; width: auto;'>
                                 <form action='confirm.php' method='post'>
                                     <input type='hidden' name='client_id' value='" . htmlspecialchars($row["client_id"]) . "'>
                                     <button type='submit' class='waves-effect waves-light btn yellow darken-2' name='confirm'>Confirm</button>

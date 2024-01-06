@@ -5,7 +5,7 @@
 }
 
 .wrapper-commission{
-    height: 100vh;
+    height: 100%;
     width: 1300px ;
     display: flex;
     justify-content: center;
@@ -17,11 +17,13 @@
 .commission{    
     background-color: #2D2F31;
     color: white;   
-    height: 595px;
+    height: 631px;
     width: 100%;
+    position: relative;
+    top: 32px;
     border-radius: 15px;
     padding: 15px;
-    overflow-y: auto;
+    overflow-y: scroll;
 }
 
 .commission::-webkit-scrollbar-track
@@ -47,9 +49,26 @@
 
 
 th{
-    font-weight: 500;
+    font-weight: 600;
     color: #D5C596;
 }
+
+th:nth-child(2),
+td:nth-child(2),
+th:nth-child(7),
+td:nth-child(7)
+{
+    width: 20%;
+}
+
+th:nth-child(7),
+td:nth-child(7){
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    width: auto;
+}
+
 
 
 
